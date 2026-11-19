@@ -2,6 +2,7 @@
   "stage": "Step 1: fresh 8x4 CMOS5L toolchain baseline",
   "prepared_on": "2026-11-19",
   "repository": "https://github.com/Saiikishen/MultiProtocol_Emulator",
+  "repository_id": 1463657847,
   "repository_history": "Fresh project root; no upstream Git ancestry imported.",
   "upstream_repository": "https://github.com/TinyTapeout/ttihp-verilog-template",
   "original_import_branch": "cmos5l",
@@ -23,7 +24,25 @@
     "cocotb": "2.0.1",
     "pytest": "8.4.2"
   },
-  "local_validation": "Pending fresh run in this repository.",
-  "physical_validation": "Pending fresh 8x4 GDS, precheck and gate-level run.",
+  "validated_source_sha": "6327d96528f02c483ecdad33ee30d942260b8e52",
+  "local_validation": {
+    "date": "2026-11-19",
+    "command": "bash tools/run_baseline.sh",
+    "rtl_tests": "1 passed / 0 failed",
+    "lint": "passed: Verilator 5.020 lint-only",
+    "structural": "passed: Yosys 0.33 check -assert; 0 problems",
+    "simulator": "Icarus Verilog 12.0",
+    "evidence_directory": "reports/local (ignored; logs retained in the local working copy)"
+  },
+  "cloud_validation": {
+    "test": {"status": "passed", "url": "https://github.com/Saiikishen/MultiProtocol_Emulator/actions/runs/44458164499"},
+    "docs": {"status": "passed", "url": "https://github.com/Saiikishen/MultiProtocol_Emulator/actions/runs/44458164455"},
+    "physical": {
+      "url": "https://github.com/Saiikishen/MultiProtocol_Emulator/actions/runs/44458164500",
+      "status_at_recording": "in_progress",
+      "acceptance": "Pending GDS, precheck and gate-level results; check the live run."
+    }
+  },
+  "summary_tool_validation": "20 focused success/error fixtures passed; historical 1x1 artifact parsing checked. This is not evidence for the new physical run.",
   "historical_evidence_note": "The deleted repository results are retained locally only and do not validate this revision."
 }

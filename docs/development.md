@@ -4,15 +4,22 @@ Status at repository initialization: 19 November 2026.
 
 ## 1. Establish the 8x4 toolchain baseline
 
-- [ ] Run the unchanged adder test locally; save simulator/tool versions.
-- [ ] Pass Verilator lint and the Yosys structural check.
-- [ ] Pass the new repository's RTL test and documentation workflows.
+- [x] Run the unchanged adder test locally; save simulator/tool versions.
+- [x] Pass Verilator lint and the Yosys structural check.
+- [x] Pass the new repository's RTL test and documentation workflows.
 - [ ] Complete 8x4 GDS generation with the pinned CMOS5L flow.
 - [ ] Pass Tiny Tapeout precheck and gate-level simulation on that build.
 - [ ] Save the run ID, source SHA, artifacts, warnings and physical results.
 
 A passing combinational example validates the flow, not the proposed emulator.
 Do not infer a core frequency or SRAM feasibility from this result.
+
+The completed checks used source `6327d96528f02c483ecdad33ee30d942260b8e52`.
+Cloud evidence: [RTL test](https://github.com/Saiikishen/MultiProtocol_Emulator/actions/runs/44458164499)
+and [documentation](https://github.com/Saiikishen/MultiProtocol_Emulator/actions/runs/44458164455).
+The [physical workflow](https://github.com/Saiikishen/MultiProtocol_Emulator/actions/runs/44458164500)
+was still running when this progress record was written. Its downstream precheck
+and gate-level results are pending. Check the live run before updating this record.
 
 ## 2. Define the programmable engine before RTL expansion
 

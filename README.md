@@ -12,12 +12,16 @@ targeting Tiny Tapeout's **IHP CMOS5L, 8x4-tile** allocation.
 Development resumed on **19 November 2026** with a new repository and fresh Git
 history. The current RTL is the unchanged Tiny Tapeout combinational adder,
 used to validate the toolchain. **The emulator cores and protocol firmware are
-not implemented yet.** Physical validation of this new 8x4 baseline is pending.
+not implemented yet.** Local simulation/lint/structural checks and cloud RTL/docs
+validation have passed. The first 8x4 physical workflow has been launched;
+GDS/precheck/gate-level acceptance is still pending.
 
 Only this repository's own Actions runs establish its validation status.
 Results from the deleted repository are historical and are not current evidence.
 See [the baseline manifest](reports/baseline_manifest.json) and
-[the development checklist](docs/development.md).
+[the development checklist](docs/development.md). The
+[architecture contract](docs/architecture.md) records agreed behavior and open
+decisions for the next development stage.
 
 ## Planned architecture
 
@@ -53,6 +57,21 @@ plus the repository variable `ENABLE_LAYOUT_VIEWER=true`.
 
 The adder has no sequential clock path. Passing its physical checks does not
 demonstrate 50 MHz core timing, SRAM integration or dual-core feasibility.
+
+## Summarize a physical baseline
+
+Download all artifacts from one completed GDS workflow run into a new directory.
+Use that run's full source SHA and URL:
+
+```sh
+gh run download RUN_ID --repo Saiikishen/MultiProtocol_Emulator --dir reports/local/cloud/8x4
+python tools/summarize_baseline.py reports/local/cloud/8x4 --expected-sha FULL_SHA --run-url RUN_URL
+```
+
+The tool rejects mismatched provenance, missing/failed test reports and missing
+or nonzero required physical-error metrics. It writes
+`reports/baseline_results_8x4.json`, keeping filler area separate from logic.
+Do not mix artifacts from different runs in the same directory.
 
 ## Source attribution
 
