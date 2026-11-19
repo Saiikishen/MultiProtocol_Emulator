@@ -9,8 +9,7 @@ targeting Tiny Tapeout's **IHP CMOS5L, 8x4-tile** allocation.
 
 ## Current stage
 
-Development resumed on **19 November 2026** with a new repository and fresh Git
-history. The current RTL is the unchanged Tiny Tapeout combinational adder,
+Development started on **19 November 2026**. The current RTL is the unchanged Tiny Tapeout combinational adder,
 used to validate the toolchain. **The emulator cores and protocol firmware are
 not implemented yet.** Local simulation/lint/structural checks and cloud RTL/docs
 validation have passed. The first 8x4 physical workflow has been launched;
