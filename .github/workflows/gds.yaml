@@ -1,0 +1,52 @@
+name: gds
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  gds:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Build GDS
+        uses: TinyTapeout/tt-gds-action@e7a50f8f46f9f8df4b2c9935bfeb1cbc6b6ae4f6 # ttihp27a
+        with:
+          pdk: ihp-sg13cmos5l
+          tools-ref: 9d13ff3e3e6202090740110438c6a10c1d62ca0f # main, checked 2026-11-12
+          librelane-version: 3.1.0.dev4
+
+  precheck:
+    needs: gds
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Run Tiny Tapeout Precheck
+        uses: TinyTapeout/tt-gds-action/precheck@e7a50f8f46f9f8df4b2c9935bfeb1cbc6b6ae4f6
+        with:
+          tools-ref: 9d13ff3e3e6202090740110438c6a10c1d62ca0f
+
+  gl_test:
+    needs: gds
+    runs-on: ubuntu-24.04
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: GL test
+        uses: TinyTapeout/tt-gds-action/gl_test@e7a50f8f46f9f8df4b2c9935bfeb1cbc6b6ae4f6
+
+  viewer:
+    needs: gds
+    if: ${{ vars.ENABLE_LAYOUT_VIEWER == 'true' }}
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
+    steps:
+      - uses: TinyTapeout/tt-gds-action/viewer@e7a50f8f46f9f8df4b2c9935bfeb1cbc6b6ae4f6

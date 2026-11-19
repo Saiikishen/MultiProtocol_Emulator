@@ -1,0 +1,29 @@
+{
+  "stage": "Step 1: fresh 8x4 CMOS5L toolchain baseline",
+  "prepared_on": "2026-11-19",
+  "repository": "https://github.com/Saiikishen/MultiProtocol_Emulator",
+  "repository_history": "Fresh project root; no upstream Git ancestry imported.",
+  "upstream_repository": "https://github.com/TinyTapeout/ttihp-verilog-template",
+  "original_import_branch": "cmos5l",
+  "original_import_commit": "231f26a58b8d2efbab25bef24b29c94362a431a3",
+  "current_template_reference": "4b1204ab387b5ab94db1d57067051d8d89a2f83c",
+  "top_module": "tt_um_example",
+  "example_function": "8-bit combinational addition modulo 256",
+  "rtl_modified": false,
+  "test_modified": false,
+  "current_tiles": "8x4",
+  "pdk": "ihp-sg13cmos5l",
+  "gds_action_ref": "TinyTapeout/tt-gds-action@e7a50f8f46f9f8df4b2c9935bfeb1cbc6b6ae4f6",
+  "gds_action_release": "ttihp27a",
+  "tt_support_tools_commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+  "librelane_version": "3.1.0.dev4",
+  "clock_period_constraint_ns": 20,
+  "clock_note": "The adder has no sequential clock path; this does not validate 50 MHz core timing.",
+  "dependency_pins": {
+    "cocotb": "2.0.1",
+    "pytest": "8.4.2"
+  },
+  "local_validation": "Pending fresh run in this repository.",
+  "physical_validation": "Pending fresh 8x4 GDS, precheck and gate-level run.",
+  "historical_evidence_note": "The deleted repository results are retained locally only and do not validate this revision."
+}
